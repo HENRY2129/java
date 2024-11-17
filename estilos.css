@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+.ContenedorBusqueda {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    width: 80%;
+    max-width: 1400px;
+}
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+.busqueda {
+    margin-bottom: 20px;
+}
+.Busqueda-Inside input {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.Busqueda-Inside input:focus {
+    border-color: #0afa2a;
+}
+.boton {
+    padding: 10px 20px;
+    background-color: #0afa2a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.boton:hover {
+    background-color: #0afa2a;
+}
+.contenedorTabla {
+    margin-top: 40px;
+    text-align: center;
+}
+#tabla {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#tabla thead {
+    background-color: #0afa2a;
+    color: white;
+}
+#tabla th,
+#tabla td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+#tabla tbody tr:hover {
+    background-color: #f1f1f1;
+}
+#titulo {
+    font-size: 1.5rem;
+    color: #0afa2a;
+    margin-bottom: 20px;
+}
+#resultado {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #0afa2a;
+}

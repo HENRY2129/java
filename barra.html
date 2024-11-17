@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de busqueda hh29</title>
+    <link rel="icon"  href="log.jpg">
+
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <div class="">
+
+    </div>
+    <div class="ContenedorBusqueda">
+
+        <h1>barra de busqueda </h1>
+        <div class="busqueda">
+            <div class="Busqueda-Inside">
+                <input type="text" name="search" placeholder="Buscar" id="Buscar">
+                <div class="BotonBuscar">
+
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="boton" onclick="buscar()">
+            <span>BUSCAR</span>
+        </button>
+
+        <div id="resultado">
+
+        </div>
+    </div>
+
+
+    <div class="contenedorTabla">
+        <h1 id="titulo">Tabla</h1>
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>Verbo</th>
+                    <th>Definición</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Emular</td>
+                    <td>Imitar o tratar de igualar a alguien, especialmente en lo que se considera una cualidad admirable.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fomentar</td>
+                    <td>Promover o alentar algo, especialmente una acción o un comportamiento.</td>
+                </tr>
+
+                <tr>
+                    <td>hablar</td>
+                    <td>se refiere a la acción de emitir sonidos articulados, generalmente con el propósito de
+                        comunicarse, expresar pensamientos, ideas o sentimientos mediante el lenguaje verbal.</td>
+                </tr>
+                <tr>
+                    <td>Vaticinar</td>
+                    <td>Predecir o pronosticar el futuro, especialmente de manera inexacta o a partir de ciertos indicios.<td>
+                </tr>
+                <tr>
+                    <td>Cantar</td>
+                    <td>Producir sonidos melodiosos, generalmente acompañados de notas musicales, con el propósito de
+                        crear una canción o melodía.</td>
+                </tr>
+                <tr>
+                    <td>leer</td>
+                    <td>se refiere a la acción de interpretar y comprender un texto, ya sea escrito o impreso,
+                        utilizando los ojos y el cerebro..</td>
+                </tr>
+                <tr>
+                    <td>Cernir</td>
+                    <td>Filtrar o separar algo por medio de un cedazo o tamiz. También se usa en sentido figurado para referirse a examinar algo con detenimiento. </td>
+                </tr>
+
+                <tr>
+                    <td>Viajar</td>
+                    <td>se refiere a la acción de desplazarse de un lugar a otro, generalmente a una distancia
+                        considerable, ya sea por razones de trabajo, placer, estudios, o cualquier otro motivo..</td>
+                </tr>
+                <tr>
+                    <td>Escuchar</td>
+                    <td>se refiere a la acción de prestar atención y percibir los sonidos a través del sentido del oído,
+                        con el objetivo de entender o captar lo que se está oyendo.</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+        function buscar() {
+            const filtro = document.getElementById("Buscar").value.toUpperCase();
+            const tabla = document.getElementById("tabla");
+            const filas = tabla.getElementsByTagName("tr");
+
+            for (let i = 1; i < filas.length; i++) {
+                const celdas = filas[i].getElementsByTagName("td");
+                let encontrado = false;
+
+                for (let j = 0; j < celdas.length; j++) {
+                    const textoCelda = celdas[j].textContent || celdas[j].innerText;
+                    if (textoCelda.toUpperCase().indexOf(filtro) > -1) {
+                        encontrado = true;
+                        break;
+                    }
+                }
+                if (encontrado) {
+                    filas[i].style.display = "";
+                } else {
+                    filas[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

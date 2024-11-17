@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario hh29</title>
+  <link rel="icon"  href="log.jpg">
+  <link rel="stylesheet" href="estilo.css">
+  
+  <script>
+    function validarFormulario(event) {
+      event.preventDefault(); 
+
+      const nombreUsuario = document.getElementById('nombre').value.trim();
+      const apellidoUsuario = document.getElementById('apellido').value.trim();
+      const emailUsuario = document.getElementById('email').value.trim();
+      const contrasenaUsuario = document.getElementById('contraseña').value.trim();
+
+      let listaErrores = [];
+
+      if (nombreUsuario === '') {
+        listaErrores.push('El nombre es obligatorio.');
+      }
+
+      if (apellidoUsuario === '') {
+        listaErrores.push('El apellido es obligatorio.');
+      }
+
+      const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (emailUsuario === '') {
+        listaErrores.push('El email es obligatorio.');
+      } else if (!regexEmail.test(emailUsuario)) {
+        listaErrores.push('El email no tiene un formato válido.');
+      }
+
+      if (contrasenaUsuario === '') {
+        listaErrores.push('La contraseña es obligatoria.');
+      } else if (contrasenaUsuario.length < 6) {
+        listaErrores.push('La contraseña debe tener al menos 6 caracteres.');
+      }
+
+      const mensajeError = document.getElementById('mensajeError');
+      const mensajeExito = document.getElementById('mensajeExito');
+
+      if (listaErrores.length > 0) {
+        mensajeError.innerHTML = listaErrores.join('<br>');
+        mensajeError.style.color = 'red';
+        mensajeExito.innerHTML = ''; 
+      } else {
+        mensajeError.innerHTML = '';
+        mensajeExito.innerHTML = 'Formulario enviado correctamente!';
+        mensajeExito.style.color = 'green';
+
+        console.log('Formulario enviado con los siguientes datos:');
+        console.log('Nombre:', nombreUsuario);
+        console.log('Apellido:', apellidoUsuario);
+        console.log('Email:', emailUsuario);
+        console.log('Contraseña:', contrasenaUsuario);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h2>Formulario</h2>
+
+  <div id="mensajeError"></div>
+  <div id="mensajeExito"></div>
+
+  <form id="registroForm" onsubmit="validarFormulario(event)">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="contraseña">Contraseña:</label>
+      <input type="password" id="contraseña" name="contraseña" required>
+    </div>
+
+    <button type="submit" class="btn-submit">Enviar</button>
+  </form>
+
+</body>
+
+</html>

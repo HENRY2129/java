@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de tareas hh29</title>
+    <link rel="icon"  href="log.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="agregarTarea">
+        <h1>Gestor de tareas</h1>
+        <input type="text" id="tareaNombre" placeholder="Descripción de la tarea">
+        <div>
+            <label>
+                <input type="radio" name="importante" id="esImportante" value="true"> Importante
+            </label>
+            <label>
+                <input type="radio" name="importante" id="noEsImportante" value="false"> No es importante
+            </label>
+        </div>
+        <button onclick="agregarTarea()">Agregar tarea</button>
+    </div>
+
+    <div id="listaTareas">
+        <div class="column">
+            <div class="section" id="importantes">
+                <h2>Tareas Importantes</h2>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="section" id="noImportantes">
+                <h2>Tareas No Importantes</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
